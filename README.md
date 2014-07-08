@@ -42,9 +42,9 @@ use linchpinstudios/backstretch;
     'fade' => 750,
     'clickEvent' => false,
     'images' => [
-      'item' => ['image' => http://dl.dropbox.com/u/515046/www/outside.jpg'],
-      'item' => ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg'],
-      'item' => ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg'],
+      ['image' => 'http://dl.dropbox.com/u/515046/www/outside.jpg'],
+      ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg'],
+      ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg'],
     ],
   ]);
 ?>
