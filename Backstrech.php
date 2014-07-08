@@ -72,8 +72,8 @@ use Yii;
         
         if($this->clickEvent){
             
-        }else if($block != ''){
-            $js[] = "$('".$block."').backstretch(";
+        }else if($this->block != ''){
+            $js[] = "$('".$this->block."').backstretch(";
             $js[] = $this->generateImages();
             $js[] = ");";
         }else{
