@@ -66,6 +66,7 @@ use Yii;
      */
     public function run()
     {
+        $view = $this->getView();
         $js = [];
         BackstrechAssets::register($view);
         
