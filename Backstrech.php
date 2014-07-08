@@ -23,9 +23,9 @@ use Yii;
  *     'fade' => 750,
  *     'clickEvent' => false,
  *     'images' => [
- *         ['image' => 'http://dl.dropbox.com/u/515046/www/outside.jpg'],
- *         ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg'],
- *         ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/outside.jpg','event'=>'#eventOne'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg','event'=>'#eventTwo'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg','event'=>'#eventThree'],
  *     ],
  * ]);
  * ```
@@ -53,7 +53,7 @@ use Yii;
      */
      public $block = '';
     /**
-     * @var boolean 
+     * @var boolean if click events should used
      */
      public $clickEvent = false;
     
@@ -71,7 +71,7 @@ use Yii;
         BackstrechAssets::register($view);
         
         if($this->clickEvent){
-            
+            $js[] = $this->generateClickEvents();
         }else if($this->block != ''){
             $js[] = "$('".$this->block."').backstretch(";
             $js[] = $this->generateImages();
@@ -87,6 +87,12 @@ use Yii;
     }
     
     
+    /**
+     * generateImages function.
+     * 
+     * @access private
+     * @return string
+     */
     private function generateImages()
     {
         $images = $this->images;
@@ -106,6 +112,21 @@ use Yii;
         }
         
         return $return;
+    }
+    
+    private function generateClickEvents()
+    {
+        $images = $this->images;
+        $return = [];
+        
+        foreach($images as $i){
+            $return[] = '$("'.$i['event'].'").click(function(e) {';
+            $return[] = 'e.preventDefault();';
+            $return[] = '$.backstretch("'.$i['image'].'")';
+            $return[] = '});';
+        }
+        
+        return implode("\n", $return);
     }
     
  }
