@@ -70,7 +70,7 @@ use Yii;
         $js = [];
         BackstrechAssets::register($view);
         
-        if($clickEvent){
+        if($this->clickEvent){
             
         }else if($block != ''){
             $js[] = "$('".$block."').backstretch(";
