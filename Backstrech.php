@@ -7,8 +7,7 @@
 
 namespace linchpinstudios\backstretch;
 
-use yii\helpers\Html;
-use yii\base\InvalidConfigException;
+use Yii;
 
 /**
  * An Icon Bar provides a menu to quickly navigate an app. Use the Icon Bar 
@@ -68,7 +67,7 @@ use yii\base\InvalidConfigException;
     public function run()
     {
         $js = [];
-        BackstrechAsset::register($view);
+        BackstrechAssets::register($view);
         
         if($clickEvent){
             
