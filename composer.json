@@ -1,0 +1,25 @@
+{
+	"name": "linchpinstudios/yii2-backstretch",
+	"description": "Jquery Backstrech Plugin for the Yii2 framework",
+	"keywords": ["yii2", "Jquery", "Plugin", "Backstrech"],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/linchpinstudios/yii2-backstretch/issues",
+		"source": "https://github.com/linchpinstudios/yii2-backstretch"
+	},
+	"authors": [
+		{
+			"name": "Josh Hagel",
+			"email": "joshhagel@linchpinstudios.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"linchpinstudios\\backstretch\\": ""
+		}
+	}
+}
