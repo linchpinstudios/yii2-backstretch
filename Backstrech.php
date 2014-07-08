@@ -97,7 +97,7 @@ use yii\base\InvalidConfigException;
             $returnImages[] = $i->image;
         }
         
-        if($count > 1{
+        if($count > 1){
             $return = '["' . implode('","', $returnImages) . '"]';
             $return .= ',{duration: '.$this->duration.', fade: '.$this->fade.'}';
         }else{
