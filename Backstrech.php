@@ -23,9 +23,9 @@ use Yii;
  *     'fade' => 750,
  *     'clickEvent' => false,
  *     'images' => [
- *         'item' => ['image' => http://dl.dropbox.com/u/515046/www/outside.jpg'],
- *         'item' => ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg'],
- *         'item' => ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/outside.jpg'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg'],
+ *         ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg'],
  *     ],
  * ]);
  * ```
@@ -90,12 +90,13 @@ use Yii;
     private function generateImages()
     {
         $images = $this->images;
-        $count = count($images);
         $returnImages = [];
         
         foreach($images as $i){
             $returnImages[] = $i['image'];
         }
+        
+        $count = count($returnImages);
         
         if($count > 1){
             $return = '["' . implode('","', $returnImages) . '"]';
