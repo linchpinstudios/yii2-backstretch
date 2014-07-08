@@ -94,7 +94,7 @@ use Yii;
         $returnImages = [];
         
         foreach($images as $i){
-            $returnImages[] = $i->image;
+            $returnImages[] = $i['image'];
         }
         
         if($count > 1){
