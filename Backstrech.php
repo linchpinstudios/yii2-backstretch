@@ -109,7 +109,7 @@ use yii\helpers\Json;
             $return = '"'.$returnImages[0].'"';
         }
         if(!empty($this->options)){
-            $return = ','.Json::encode($this->options);
+            $return .= ','.Json::encode($this->options);
         }
         
         return $return;
