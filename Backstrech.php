@@ -19,13 +19,15 @@ use Yii;
  * ```php
  * // a button group using Dropdown widget
  * echo Backstrech::widget([
- *     'duration' => 3000,
- *     'fade' => 750,
  *     'clickEvent' => false,
  *     'images' => [
  *         ['image' => 'http://dl.dropbox.com/u/515046/www/outside.jpg','event'=>'#eventOne'],
  *         ['image' => 'http://dl.dropbox.com/u/515046/www/garfield-interior.jpg','event'=>'#eventTwo'],
  *         ['image' => 'http://dl.dropbox.com/u/515046/www/cheers.jpg','event'=>'#eventThree'],
+ *     ],
+ *     'options' => [
+ *         'duration' => 3000,
+ *         'fade' => 750,
  *     ],
  * ]);
  * ```
@@ -36,14 +38,6 @@ use Yii;
  
  class Backstrech extends \yii\base\Widget
  {
-    /**
-     * @var intiger the duration of the slideshow in ms
-     */
-     public $duration = 3000;
-    /**
-     * @var intiger the duration of the transition in ms
-     */
-     public $fade = 750;
     /**
      * @var array images to dispaly
      */
@@ -56,6 +50,10 @@ use Yii;
      * @var boolean if click events should used
      */
      public $clickEvent = false;
+    /**
+     * @var array options
+     */
+     public $options = [];
     
     
     /**
@@ -106,9 +104,11 @@ use Yii;
         
         if($count > 1){
             $return = '["' . implode('","', $returnImages) . '"]';
-            $return .= ',{duration: '.$this->duration.', fade: '.$this->fade.'}';
         }else{
             $return = '"'.$returnImages[0].'"';
+        }
+        if(!empty($this->options){
+            $return = ','.Json::encode($this->options);
         }
         
         return $return;
