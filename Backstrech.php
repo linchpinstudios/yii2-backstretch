@@ -8,6 +8,7 @@
 namespace linchpinstudios\backstretch;
 
 use Yii;
+use yii\helpers\Json;
 
 /**
  * An Icon Bar provides a menu to quickly navigate an app. Use the Icon Bar 
