@@ -107,7 +107,7 @@ use Yii;
         }else{
             $return = '"'.$returnImages[0].'"';
         }
-        if(!empty($this->options){
+        if(!empty($this->options)){
             $return = ','.Json::encode($this->options);
         }
         
